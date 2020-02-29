@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="username" formControlName="username">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="password" formControlName="password">
+  </div>
+
+  <button type="submit" class="btn btn-success" (click)="onSubmit()">Se Connecter</button>
+  <button type="submit" class="btn btn-success" (click)="getRoles()">les roles</button>
+</form>
