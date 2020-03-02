@@ -18,7 +18,7 @@ export class AuthenticationService {
    }
   login(user: User) {
     // tslint:disable-next-line: no-shadowed-variable
-    return this.http.post<User>(`${environment.apiUrl}/api/login_check`, user).pipe(map(user => {
+    return this.http.post<User>(`http://127.0.0.1:8000/api/login_check`, user).pipe(map(user => {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
         return user;
@@ -27,7 +27,8 @@ export class AuthenticationService {
   public get currentUserValue(): User {
     return this.currentUserSubject.value;
   }
-  getRoles() {
-    return this.http.get(`${environment.apiUrl}/api/profils`);
+  logout() {
+    // tslint:disable-next-line:quotemark
+    localStorage.removeItem("token");
   }
 }

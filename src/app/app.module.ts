@@ -8,12 +8,18 @@ import { AuthenticationComponent } from './components/authentication/authenticat
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptorService } from './helpers/jwt-interceptor.service';
+import { NewUserComponent } from './components/new-user/new-user.component';
+import { PutUserComponent } from './components/put-user/put-user.component';
+import { NewCompteComponent } from './components/new-compte/new-compte.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    FormLoginComponent
+    FormLoginComponent,
+    NewUserComponent,
+    PutUserComponent,
+    NewCompteComponent
   ],
   imports: [
     BrowserModule,

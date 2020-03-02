@@ -36,9 +36,4 @@ onSubmit() {
     }
   );
 }
-getRoles(){
-  this.authenticationService.getRoles().subscribe( res => console.warn(res)
-  );
-}
-
 }

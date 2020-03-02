@@ -1,0 +1,24 @@
+<div class="adduser">
+    <form class="form-group" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <div class="champ ">
+            <input type="text " class="form-control " placeholder="Username" formControlName="username">
+            <i class="fas fa-address-card "></i>
+        </div>
+        <div class="champ ">
+            <input type="text " class="form-control " placeholder="Email" formControlName="email">
+            <i class="fas fa-lock "></i>
+        </div>
+        <div class="champ ">
+            <input type="text " class="form-control " placeholder="Password " formControlName="password">
+            <i class="fas fa-lock "></i>
+        </div>
+        <div class="input2 ">
+            <label for="profil " class="label ">Role</label>
+            <select class="form-control " id="sel1 " formControlName="profil">
+                  <option  *ngFor="let profil of profil"  [value]="profil.id">{{ profil.libelle }}</option>
+                </select>
+        </div>
+        <button class="btn btn-success ">Creer utilisateur</button>
+    </form>
+</div>
