@@ -2,7 +2,7 @@ import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;
   constructor(
-     private authenticationService: AuthenticationService
+     private authenticationService: AuthenticationService, private ndm: Router
   ) { }
 
   ngOnInit() {
@@ -29,6 +29,7 @@ onSubmit() {
   this.authenticationService.login(user).subscribe(
     (data) => {
       console.warn(data);
+      this.ndm.navigateByUrl('/newuser');
     },
     error => {
       console.warn('connexion echoue !!!');

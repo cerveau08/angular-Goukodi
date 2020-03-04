@@ -14,7 +14,7 @@ export class PutUserComponent implements OnInit {
 
   ngOnInit() {
    // je recuper tout les users
-   this.userService.getAll().subscribe(
+   this.userService.getAllUser().subscribe(
      data => {
        console.log(data);
        this.users = data;

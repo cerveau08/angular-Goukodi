@@ -12,7 +12,7 @@ export class UserService {
   register(user) {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/users`, user);
   }
-  getAll() {
+  getAllUser() {
     return this.httpClient.get<any>(`${environment.apiUrl}/api/users.json`);
   }
 }
