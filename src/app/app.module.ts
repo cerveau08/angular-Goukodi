@@ -11,6 +11,9 @@ import { JwtInterceptorService } from './helpers/jwt-interceptor.service';
 import { NewUserComponent } from './components/new-user/new-user.component';
 import { PutUserComponent } from './components/put-user/put-user.component';
 import { NewCompteComponent } from './components/new-compte/new-compte.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
+import { DepotComponent } from './components/depot/depot.component';
+import { RetraitComponent } from './components/retrait/retrait.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { NewCompteComponent } from './components/new-compte/new-compte.component
     FormLoginComponent,
     NewUserComponent,
     PutUserComponent,
-    NewCompteComponent
+    NewCompteComponent,
+    TransactionComponent,
+    DepotComponent,
+    RetraitComponent
   ],
   imports: [
     BrowserModule,

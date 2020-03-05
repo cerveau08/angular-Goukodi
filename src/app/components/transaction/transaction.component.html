@@ -1,0 +1,79 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<html>
+	<head>
+		<title>VHEG Overses Educational Fair Registration</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<!-- Include jQuery -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<!-- Include Date Range Picker -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+	</head>
+	<body>
+		<div class="container register-form top-buffer-1">
+		  <div class="form">
+			  <div class="note">
+				<p>Faire Une Transfert D'argent</p>
+			  </div>
+		 <div class="form-content bk">
+				<form [formGroup]="registreTransaction">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Les Informations de l'Expediteur</legend>
+            <div class="row">
+							<div class="col-sm-3">
+							  <label for="nomComplet">Nom Complet</label>
+							  <input type="nomComplet" class="form-control" formControlName="nomCompletE" id="nomComplet" placeholder="Nom Complet" name="nomComplet">
+              </div>
+              <div class="col-sm-3">
+							  <label for="telephone">Telephone</label>
+							  <input type="number" class="form-control" formControlName="telephoneE" id="telephone" placeholder="telephone">
+							</div>
+              <div class="col-sm-3">
+							  <label for="place">Montant</label>
+							  <input type="number" class="form-control" formControlName="montant" id="fmane" placeholder="Montant" name="place">
+							</div>
+							<div class="col-sm-3">
+							  <label for="ninea">Type Piece</label>
+							  <input type="ninea" class="form-control" formControlName="typePieceE" id="ninea" placeholder="Ninea" name="ninea" >
+							</div>
+               <div class="col-sm-3">
+							  <label for="rc">Numero Piece</label>
+							  <input type="texte" class="form-control" id="rc" formControlName="numeroPieceE" placeholder="Registre De Commerce" name="rc">
+							</div>
+            </div>
+					</fieldset>
+					<!-- Educational Qualification -->
+
+					<fieldset class="scheduler-border">
+            <legend class="scheduler-border">Les Informations du Recepteur</legend>
+            <div class="row">
+							<div class="col-sm-3">
+							  <label for="cname">Nom Complet</label>
+							  <input type="name" class="form-control" formControlName="nomCompletR" id="title" placeholder="email" name="email">
+							</div>
+							<div class="col-sm-3">
+							  <label for="uname">Telephone</label>
+							  <input type="number" class="form-control" formControlName="telephoneR" id="usermane" placeholder="username" name="uname">
+							</div>
+            </div>
+          </fieldset>
+					<!--Educational Qualification -->
+					<!-- Study Abroad Plans -->
+					<button type="submit" class="button" (click)="transactions()">Envoyer</button>
+				</form>
+			</div>
+		  </div>
+		  </div>
+	</body>
+</html>
