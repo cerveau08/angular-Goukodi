@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom Complet</th>
+      <th scope="col">Ninea</th>
+      <th scope="col">Registre Commercial</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let partenaire of dataUser">
+      <th scope="row">{{partenaire.id}}</th>
+      <td>{{partenaire.nomComplet}}</td>
+      <td>{{partenaire.ninea}}</td>
+      <td>{{partenaire.registreCommercial }}</td>
+      <td>{{partenaire.telephone}}</td>
+      <td>{{partenaire.adresse}}</td>
+      <td>
+        <div *ngIf = "partenaire.userComptePartenaire[0].isActive; else elseBlock">
+          <button class="btn btn-success" (click)="onStatus(partenaire.userComptePartenaire[0].id)">Active</button>
+        </div>
+          <ng-template #elseBlock>
+            <button class="btn btn-danger" (click)="onStatus(partenaire.userComptePartenaire[0].id)">Desactive</button>
+          </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let user of dataUser">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <div *ngIf = "user.isActive; else elseBlock">
+          <button class="btn btn-success" (click)="onStatus(user.id)" >Active</button>
+        </div>
+          <ng-template #elseBlock>
+            <button class="btn btn-danger" (click)="onStatus(user.id)">Desactive</button>
+          </ng-template>
+      </td>
+    </tr>
+  </tbody>
+</table>

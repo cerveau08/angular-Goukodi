@@ -13,6 +13,18 @@ export class UserService {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/users`, user);
   }
   getAllUser() {
-    return this.httpClient.get<any>(`${environment.apiUrl}/api/users.json`);
+    return this.httpClient.get(`${environment.apiUrl}/api/users`);
+  }
+  getAllAdmin() {
+    return this.httpClient.get(`${environment.apiUrl}/api/admin`);
+  }
+  getAllCaissier() {
+    return this.httpClient.get(`${environment.apiUrl}/api/caissier`);
+  }
+  getAllPartenaire() {
+    return this.httpClient.get(`${environment.apiUrl}/api/partenaires`);
+  }
+  getStatus(id: number) {
+   return this.httpClient.get(`${environment.apiUrl}/api/users/status/${id}`);
   }
 }

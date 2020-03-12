@@ -8,10 +8,10 @@
 		<title>VHEG Overses Educational Fair Registration</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 		<!-- Include jQuery -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
@@ -24,41 +24,26 @@
 		<div class="container register-form top-buffer-1">
 		  <div class="form">
 			  <div class="note">
-				<p>Faire Un Transfert D'argent</p>
+				<p>Creation de Compte</p>
 			  </div>
 		 <div class="form-content bk">
-				<form [formGroup]="registreRetrait">
-
-					<!-- Educational Qualification -->
-
+				<form [formGroup]="registerComptePE">
 					<fieldset class="scheduler-border">
-            <legend class="scheduler-border">Les Informations du Recepteur</legend>
-            <div class="row">
-              <div class="col-sm-3">
-							  <label for="uname">Code</label>
-							  <input type="text" class="form-control" formControlName="code" id="usermane" placeholder="username" name="uname">
-							</div>
-							<div class="col-sm-3">
-							  <label for="cname">Nom Complet</label>
-							  <input type="name" class="form-control" formControlName="nomCompletR" id="title" placeholder="email" name="email">
-							</div>
-							<div class="col-sm-3">
-							  <label for="uname">Telephone</label>
-							  <input type="number" class="form-control" formControlName="telephoneR" id="usermane" placeholder="username" name="uname">
+						<legend class="scheduler-border">Creation d'un Compte pour Un Partenaire Existant</legend>
+						<div class="row">
+               <div class="col-sm-5" >
+							  <label for="lname">Partenaire</label>
+							  <select class="form-control " id="sel1 " name="lname" formControlName="partenaire">
+                  <option  name="lname" *ngFor="let partenaire of partenaire"  [value]="partenaire.id">{{ partenaire.ninea }}</option>
+                </select>
               </div>
-              <div class="col-sm-3">
-							  <label for="uname">Type Piece</label>
-							  <input type="text" class="form-control" formControlName="typePieceR" id="usermane" placeholder="username" name="uname">
+               <div class="col-sm-3" formGroupName="depot">
+                <label for="place">Montant</label>
+                <input type="name" class="form-control" formControlName="montant" id="fmane" placeholder="Montant" name="place">
               </div>
-              <div class="col-sm-3">
-							  <label for="uname">Numero Piece</label>
-							  <input type="number" class="form-control" formControlName="numeroPieceR" id="usermane" placeholder="username" name="uname">
-							</div>
-            </div>
-          </fieldset>
-					<!--Educational Qualification -->
-					<!-- Study Abroad Plans -->
-					<button type="submit" class="button" (click)="retraits()">Envoyer</button>
+						</div>
+					</fieldset>
+          <button type="submit" class="button" (click)="create()">Creer Compte Partenaire</button>
 				</form>
 			</div>
 		  </div>

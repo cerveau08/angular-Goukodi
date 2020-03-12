@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Numero Compte</th>
+      <th scope="col">Date de Creation</th>
+      <th scope="col">Solde</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let compte of dataUser">
+      <th scope="row">{{compte.id}}</th>
+      <td>{{compte.numeroCompte}}</td>
+      <td>{{compte.dateCreation}}</td>
+      <td>{{ compte.solde }}</td>
+    </tr>
+  </tbody>
+</table>

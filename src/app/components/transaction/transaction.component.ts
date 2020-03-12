@@ -26,7 +26,6 @@ export class TransactionComponent implements OnInit {
   }
   get f() { return this.registreTransaction.controls; }
   transactions() {
-
     const transaction = {
       montant: this.registreTransaction.value.montant,
       nomCompletE: this.registreTransaction.value.nomCompletE,
@@ -36,15 +35,12 @@ export class TransactionComponent implements OnInit {
       nomCompletR: this.registreTransaction.value.nomCompletR,
       telephoneR: this.registreTransaction.value.telephoneR,
     };
-
-
     this.transactionService.transactions(transaction).subscribe(
       data => {
         console.log(data);
       },
      error => {
         console.log(error);
-
       }
     );
    }

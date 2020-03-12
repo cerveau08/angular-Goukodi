@@ -14,6 +14,17 @@ import { NewCompteComponent } from './components/new-compte/new-compte.component
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { DepotComponent } from './components/depot/depot.component';
 import { RetraitComponent } from './components/retrait/retrait.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListCompteComponent } from './components/list-compte/list-compte.component';
+import { ListPartenaireComponent } from './components/list-partenaire/list-partenaire.component';
+import { ListDepotComponent } from './components/list-depot/list-depot.component';
+import { FaireDepotComponent } from './components/faire-depot/faire-depot.component';
+import { ListAdminComponent } from './components/list-admin/list-admin.component';
+import { ListCaissierComponent } from './components/list-caissier/list-caissier.component';
+import { DashComponent } from './pages/dash/dash.component';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
+import { ComptePartenaireExistentComponent } from './components/compte-partenaire-existent/compte-partenaire-existent.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +36,17 @@ import { RetraitComponent } from './components/retrait/retrait.component';
     NewCompteComponent,
     TransactionComponent,
     DepotComponent,
-    RetraitComponent
+    RetraitComponent,
+    ListUsersComponent,
+    ListCompteComponent,
+    ListPartenaireComponent,
+    ListDepotComponent,
+    FaireDepotComponent,
+    ListAdminComponent,
+    ListCaissierComponent,
+    DashComponent,
+    SidebarComponent,
+    ComptePartenaireExistentComponent
   ],
   imports: [
     BrowserModule,

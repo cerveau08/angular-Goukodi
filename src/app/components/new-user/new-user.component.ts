@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { ProfilService } from 'src/app/services/profil.service';
 import { map } from 'rxjs/operators';
-import { Profil } from 'src/app/models/profil';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -13,8 +13,7 @@ import { Profil } from 'src/app/models/profil';
 export class NewUserComponent implements OnInit {
   registerForm: FormGroup;
   profil;
-  iri = `/api/profils/`;
-  constructor(private profils: ProfilService, private formBuilder: FormBuilder, private userService: UserService) { }
+  constructor(private profils: ProfilService, private formBuilder: FormBuilder, private userService: UserService, private ndm: Router) { }
 
   ngOnInit() {
     // tslint:disable-next-line:quotemark
@@ -48,6 +47,7 @@ export class NewUserComponent implements OnInit {
     this.userService.register(user).subscribe(
       data => {
         console.log(data);
+        this.ndm.navigateByUrl('/listUsers');
       },
      error => {
         console.log(error);

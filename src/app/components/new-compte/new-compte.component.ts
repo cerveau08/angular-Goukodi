@@ -1,6 +1,7 @@
 import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CompteService } from '../../services/compte.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-compte',
@@ -11,7 +12,7 @@ export class NewCompteComponent implements OnInit {
 
   registreCompte: FormGroup;
   cerv;
-  constructor( private compteService: CompteService) { }
+  constructor( private compteService: CompteService, private ndm: Router) { }
 
   ngOnInit() {
     this.cerv = 0;
@@ -70,6 +71,7 @@ export class NewCompteComponent implements OnInit {
     }).subscribe(
       data => {
        console.log(data);
+       this.ndm.navigateByUrl('/listComptes');
       },
       error => {
         console.log(error);
