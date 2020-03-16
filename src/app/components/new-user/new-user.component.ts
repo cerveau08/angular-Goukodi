@@ -51,7 +51,6 @@ export class NewUserComponent implements OnInit {
       },
      error => {
         console.log(error);
-
       }
     );
   }

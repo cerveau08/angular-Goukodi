@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RetraitService } from '../../services/retrait.service';
+import { Router } from '@angular/router';
+import { Retrait } from '../../models/retrait';
+
 
 @Component({
   selector: 'app-retrait',
@@ -9,28 +12,36 @@ import { RetraitService } from '../../services/retrait.service';
 })
 export class RetraitComponent implements OnInit {
   registreRetrait: FormGroup;
-  retr;
-  constructor(private retraitService: RetraitService) { }
+  registreCode: FormGroup;
+  cerv;
+  public loading = false;
+  code = '';
+  montant = '';
+  telephoneR = '';
+  nomCompletR = '';
+  constructor( private retraitService: RetraitService, private formBuilder: FormBuilder, private ndm: Router) { }
 
   ngOnInit() {
-    this.retr = 0;
+    this.registreCode = new FormGroup({
+      code: new FormControl('')
+    });
+  }
+  initForm2() {
     this.registreRetrait = new FormGroup({
-         code: new FormControl( ),
-         numeroPieceR: new FormControl(''),
-         typePieceR: new FormControl(''),
-         nomCompletR: new FormControl(''),
-         telephoneR: new FormControl(''),
-       });
-   }
-   get f() { return this.registreRetrait.controls; }
+      code: new FormControl(''),
+      numeroPieceR: new FormControl(''),
+      typePieceR: new FormControl('')
+    });
+ }
+  get f() { return this.registreRetrait.controls; }
   retraits() {
     const retrait = {
-      code: this.registreRetrait.value.code,
       typePieceR: this.registreRetrait.value.typePieceR,
       numeroPieceR: this.registreRetrait.value.numeroPieceR,
-      nomCompletR: this.registreRetrait.value.nomCompletR,
-      telephoneR: this.registreRetrait.value.telephoneR,
+      code: this.code,
     };
+    console.log(retrait);
+
     this.retraitService.retraits(retrait).subscribe(
       data => {
         console.log(data);
@@ -40,5 +51,33 @@ export class RetraitComponent implements OnInit {
       }
     );
    }
-
+   entrerCode() {
+    const code = this.registreCode.value.code;
+    this.retraitService.searchByCode(code).subscribe
+    (data => {
+      if (data['hydra:member'][0]) {
+        const cod = data['hydra:member'][0] ;
+        console.log(cod);
+        console.log(data['hydra:member'][0]);
+        this.initForm2();
+        this.code = cod.code;
+        this.montant = cod.montant;
+        this.nomCompletR = cod.nomCompletR;
+        this.telephoneR = cod.telephoneR;
+        this.registreRetrait.get('montant').disable();
+        this.registreRetrait.get('nomCompletR').disable();
+        this.registreRetrait.get('telephoneR').disable();
+        this.cerv = 1;
+      } else {
+        // tslint:disable-next-line:no-unused-expression
+        error => {
+          console.warn('connexion echoue !!!');
+        };
+      }
+    },
+    error => {
+      console.log(error);
+      console.log();
+    });
+  }
 }

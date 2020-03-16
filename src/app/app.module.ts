@@ -23,8 +23,7 @@ import { ListAdminComponent } from './components/list-admin/list-admin.component
 import { ListCaissierComponent } from './components/list-caissier/list-caissier.component';
 import { DashComponent } from './pages/dash/dash.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
-import { ComptePartenaireExistentComponent } from './components/compte-partenaire-existent/compte-partenaire-existent.component';
-
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -46,13 +45,20 @@ import { ComptePartenaireExistentComponent } from './components/compte-partenair
     ListCaissierComponent,
     DashComponent,
     SidebarComponent,
-    ComptePartenaireExistentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '4px',
+      primaryColour: '#ffffff',
+      secondaryColour: '#ffffff',
+      tertiaryColour: '#ffffff'
+  })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },

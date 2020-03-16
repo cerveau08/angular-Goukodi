@@ -14,11 +14,10 @@ export class CompteService {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/comptes`, compte);
   }
 
-  createE(partenaireExistant) {
-    return this.httpClient.post<any>(`${environment.apiUrl}/api/comptes`, partenaireExistant);
-  }
-
   getAllCompte() {
     return this.httpClient.get(`${environment.apiUrl}/api/comptes`);
+  }
+  searchByNinea(ninea) {
+    return this.httpClient.get<any>(`${environment.apiUrl}/api/partenaires?ninea=${ninea}`);
   }
 }

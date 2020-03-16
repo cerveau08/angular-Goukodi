@@ -27,37 +27,49 @@
 				<p>Faire Un Transfert D'argent</p>
 			  </div>
 		 <div class="form-content bk">
-				<form [formGroup]="registreRetrait">
-
-					<!-- Educational Qualification -->
-
-					<fieldset class="scheduler-border">
-            <legend class="scheduler-border">Les Informations du Recepteur</legend>
-            <div class="row">
-              <div class="col-sm-3">
-							  <label for="uname">Code</label>
-							  <input type="text" class="form-control" formControlName="code" id="usermane" placeholder="username" name="uname">
-							</div>
-							<div class="col-sm-3">
-							  <label for="cname">Nom Complet</label>
-							  <input type="name" class="form-control" formControlName="nomCompletR" id="title" placeholder="email" name="email">
-							</div>
-							<div class="col-sm-3">
-							  <label for="uname">Telephone</label>
-							  <input type="number" class="form-control" formControlName="telephoneR" id="usermane" placeholder="username" name="uname">
-              </div>
-              <div class="col-sm-3">
-							  <label for="uname">Type Piece</label>
-							  <input type="text" class="form-control" formControlName="typePieceR" id="usermane" placeholder="username" name="uname">
-              </div>
-              <div class="col-sm-3">
-							  <label for="uname">Numero Piece</label>
-							  <input type="number" class="form-control" formControlName="numeroPieceR" id="usermane" placeholder="username" name="uname">
-							</div>
+       <form [formGroup]="registreCode">
+        <fieldset class="scheduler-border">
+          <legend class="scheduler-border">Entrer Le Code</legend>
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="cname">Code</label>
+              <input type="name" class="form-control" [(ngModel)]="code" formControlName="code" id="title" placeholder="code" name="email">
             </div>
-          </fieldset>
-					<!--Educational Qualification -->
-					<!-- Study Abroad Plans -->
+          </div>
+        </fieldset>
+        <button type="submit" class="button" (click)="entrerCode()">Envoyer</button>
+       </form>
+				<form [formGroup]="registreRetrait">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Les Informations de l'Expediteur</legend>
+            <div class="row">
+							<div class="col-sm-3">
+							  <label for="nomComplet">Code de Transaction</label>
+							  <input type="nomComplet" class="form-control" [value]="code" formControlName="code" id="nomComplet" placeholder="Nom Complet" name="nomComplet">
+              </div>
+              <div class="col-sm-3">
+							  <label for="ninea">Type Piece</label>
+							  <input type="text" class="form-control" [value]="" formControlName="typePieceR" id="ninea" placeholder="type Piece" name="ninea">
+							</div>
+               <div class="col-sm-3">
+							  <label for="rc">Numero Piece</label>
+							  <input type="number" class="form-control" id="rc" [value]="" formControlName="numeroPieceR" placeholder="Numero de Piece" name="rc">
+							</div>
+							<div class="col-sm-3">
+							  <label for="nomComplet">Nom Complet</label>
+							  <input type="nomComplet" class="form-control" [value]="nomCompletR" id="nomComplet" placeholder="Nom Complet" name="nomComplet" readOnly>
+              </div>
+              <div class="col-sm-3">
+							  <label for="telephone">Telephone</label>
+							  <input type="number" class="form-control" [value]="telephoneR" id="telephone" placeholder="telephone" readonly>
+							</div>
+              <div class="col-sm-3">
+							  <label for="place">Montant</label>
+							  <input type="number" class="form-control" [value]="montant"  id="fmane" placeholder="Montant" name="place" readonly>
+							</div>
+
+          </div>
+					</fieldset>
 					<button type="submit" class="button" (click)="retraits()">Envoyer</button>
 				</form>
 			</div>

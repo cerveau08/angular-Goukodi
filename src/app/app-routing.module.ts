@@ -14,7 +14,6 @@ import { ListCompteComponent } from './components/list-compte/list-compte.compon
 import { ListPartenaireComponent } from './components/list-partenaire/list-partenaire.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { DashComponent } from './pages/dash/dash.component';
-import { ComptePartenaireExistentComponent } from './components/compte-partenaire-existent/compte-partenaire-existent.component';
 
 
 const routes: Routes = [
@@ -50,7 +49,6 @@ const routes: Routes = [
   { path: 'login', component: AuthenticationComponent, canActivate: [AuthGuard]},
   { path: 'newuser', component: NewUserComponent, canActivate: [AuthGuard]},
   { path: 'newcompte', component: NewCompteComponent, canActivate: [AuthGuard]},
-  { path: 'newcomptePE', component: ComptePartenaireExistentComponent, canActivate: [AuthGuard]},
   { path: 'envoie', component: TransactionComponent, canActivate: [AuthGuard]},
   { path: 'retrait', component: RetraitComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: '' }

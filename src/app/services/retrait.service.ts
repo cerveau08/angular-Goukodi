@@ -11,4 +11,20 @@ export class RetraitService {
   retraits(retrait) {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/transactions`, retrait);
   }
+  searchByCode(code) {
+    return this.httpClient.get<any>(`${environment.apiUrl}/api/transactions?code=${code}`);
+  }
+
+  setRetrait(retrait) {
+    console.log(retrait);
+    return this.httpClient.post<any>(`${environment.apiUrl}/api/transactions`, retrait);
+  }
+
+  getCode(code) {
+    const data = {
+      code
+    };
+    console.log(data);
+    return this.httpClient.get<any>(`${environment.apiUrl}/api/transactions?code=${code}`);
+  }
 }
