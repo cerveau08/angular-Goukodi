@@ -95,7 +95,7 @@ export class NewCompteComponent implements OnInit {
   this.compteService.create(compteNP).subscribe(
       data => {
        console.log(data);
-       this.ndm.navigateByUrl('/listCompte');
+       this.ndm.navigateByUrl('/accueil/listCompte');
        this.loading = false;
       },
       error => {
@@ -106,7 +106,7 @@ export class NewCompteComponent implements OnInit {
     this.loading = true;
     this.compteService.create(comptePE).subscribe(
       data => {
-        this.ndm.navigate(['/listCompte']);
+        this.ndm.navigate(['/accueil/listCompte']);
         console.log(data);
         this.loading = false;
       });

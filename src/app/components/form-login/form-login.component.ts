@@ -29,7 +29,7 @@ onSubmit() {
   this.authenticationService.login(user).subscribe(
     (data) => {
       console.warn(data);
-      this.ndm.navigateByUrl('/newuser');
+      this.ndm.navigate(['accueil']);
     },
     error => {
       console.warn('connexion echoue !!!');

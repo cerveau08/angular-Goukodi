@@ -16,15 +16,15 @@ export class UserService {
     return this.httpClient.get(`${environment.apiUrl}/api/users`);
   }
   getAllAdmin() {
-    return this.httpClient.get(`${environment.apiUrl}/api/admin`);
+    return this.httpClient.get(`${environment.apiUrl}/api/users`);
   }
   getAllCaissier() {
-    return this.httpClient.get(`${environment.apiUrl}/api/caissier`);
+    return this.httpClient.get(`${environment.apiUrl}/api/users`);
   }
   getAllPartenaire() {
     return this.httpClient.get(`${environment.apiUrl}/api/partenaires`);
   }
   getStatus(id: number) {
-   return this.httpClient.get(`${environment.apiUrl}/api/users/status/${id}`);
+  return this.httpClient.get(`${environment.apiUrl}/api/users/status/${id}`);
   }
 }

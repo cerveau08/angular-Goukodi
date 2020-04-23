@@ -3,8 +3,7 @@ body{
   background-position-x: center;
   background-position-y: center;
   background-size: cover;
-  background-repeat-x: no-repeat;
-  background-repeat-y: no-repeat;
+
   background-attachment: fixed;
   background-origin: initial;
   background-clip: initial;
@@ -39,7 +38,7 @@ fieldset.scheduler-border {
 {
   text-align: center;
   height: 50px;
-  background: -webkit-linear-gradient(left, rgb(164, 226, 164),  rgb(134, 226, 188));
+  background: -webkit-linear-gradient(left, rgb(119, 146, 236),  rgb(80, 52, 238));
   color: #fff;
   font-weight: bold;
   line-height: 50px;

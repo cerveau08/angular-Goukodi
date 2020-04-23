@@ -25,13 +25,13 @@ export class RetraitComponent implements OnInit {
     this.registreCode = new FormGroup({
       code: new FormControl('')
     });
-  }
-  initForm2() {
     this.registreRetrait = new FormGroup({
       code: new FormControl(''),
       numeroPieceR: new FormControl(''),
       typePieceR: new FormControl('')
     });
+  }
+  initForm2() {
  }
   get f() { return this.registreRetrait.controls; }
   retraits() {

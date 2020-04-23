@@ -1,26 +1,4 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<html>
-	<head>
-		<title>VHEG Overses Educational Fair Registration</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-		<!-- Include jQuery -->
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-		<!-- Include Date Range Picker -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-	</head>
-	<body>
 		<div class="container register-form top-buffer-1">
 		  <div class="form">
 			  <div class="note">
@@ -37,7 +15,7 @@
             </div>
           </div>
         </fieldset>
-        <button type="submit" class="button" (click)="entrerCode()">Envoyer</button>
+        <button type="submit" class="btn btn-primary" (click)="entrerCode()">Envoyer</button>
        </form>
 				<form [formGroup]="registreRetrait">
 					<fieldset class="scheduler-border">
@@ -45,15 +23,15 @@
             <div class="row">
 							<div class="col-sm-3">
 							  <label for="nomComplet">Code de Transaction</label>
-							  <input type="nomComplet" class="form-control" [value]="code" formControlName="code" id="nomComplet" placeholder="Nom Complet" name="nomComplet">
+							  <input type="nomComplet" class="form-control" [value]="code" formControlName="code" id="nomComplet" placeholder="Code de transaction" name="nomComplet">
               </div>
               <div class="col-sm-3">
 							  <label for="ninea">Type Piece</label>
-							  <input type="text" class="form-control" [value]="" formControlName="typePieceR" id="ninea" placeholder="type Piece" name="ninea">
+							  <input type="text" class="form-control" formControlName="typePieceR" id="ninea" placeholder="type Piece" name="ninea">
 							</div>
                <div class="col-sm-3">
 							  <label for="rc">Numero Piece</label>
-							  <input type="number" class="form-control" id="rc" [value]="" formControlName="numeroPieceR" placeholder="Numero de Piece" name="rc">
+							  <input type="number" class="form-control" id="rc" formControlName="numeroPieceR" placeholder="Numero de Piece" name="rc">
 							</div>
 							<div class="col-sm-3">
 							  <label for="nomComplet">Nom Complet</label>
@@ -70,10 +48,8 @@
 
           </div>
 					</fieldset>
-					<button type="submit" class="button" (click)="retraits()">Envoyer</button>
+					<button type="submit" class="btn btn-primary" (click)="retraits()">Envoyer</button>
 				</form>
 			</div>
 		  </div>
 		  </div>
-	</body>
-</html>

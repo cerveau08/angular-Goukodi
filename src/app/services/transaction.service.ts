@@ -11,4 +11,7 @@ export class TransactionService {
   transactions(transaction) {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/transactions`, transaction);
   }
+  getAllTarifs() {
+    return this.httpClient.get(`${environment.apiUrl}/api/tarifs.json`);
+  }
 }

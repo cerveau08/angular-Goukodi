@@ -1,0 +1,54 @@
+
+		<div class="container register-form top-buffer-1">
+		  <div class="form">
+			  <div class="note">
+				<p>Faire une Affecation</p>
+			  </div>
+		 <div class="form-content bk">
+       <form [formGroup]="registreDate">
+        <fieldset class="scheduler-border">
+          <legend class="scheduler-border">Entrer les dates</legend>
+          <div class="row">
+            <div class="col-sm-5">
+              <label for="cname">Dates debut</label>
+              <input type="date" class="form-control" [(ngModel)]="debut" formControlName="debut" id="title" placeholder="Numero Compte" name="email">
+            </div>
+            <div class="col-sm-5">
+              <label for="cname">Dates fin</label>
+              <input type="date" class="form-control" [(ngModel)]="fin" formControlName="fin" id="title" placeholder="Numero Compte" name="email">
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary" (click)="entrerDates()">Envoyer</button>
+       </form>
+				<form [formGroup]="registreAffectation">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Affectation</legend>
+            <div class="row">
+							<div class="col-sm-5">
+							  <label for="nomComplet">Date Debut</label>
+							  <input type="date" class="form-control" [value]="debut" formControlName="dateDebut" id="nomComplet" placeholder="Numero Compte" name="nomComplet">
+              </div>
+              <div class="col-sm-5">
+							  <label for="nomComplet">Date Fin</label>
+							  <input type="date" class="form-control" [value]="fin" formControlName="dateFin" id="nomComplet" placeholder="Numero Compte" name="nomComplet">
+              </div>
+              <div class="col-sm-5">
+							  <label for="lname">Le Caissier</label>
+							  <select class="form-control " id="sel1 " name="lname" formControlName="userComptePartenaire">
+                  <option  name="lname" *ngFor="let user of user"  [value]="user.id">{{ user.username }}</option>
+                </select>
+							</div>
+              <div class="col-sm-5">
+							  <label for="lname">Le Compte</label>
+							  <select class="form-control " id="sel1 " name="lname" formControlName="compte">
+                  <option  name="lname" *ngFor="let compte of compte"  [value]="compte.id">{{ compte.numeroCompte }}</option>
+                </select>
+							</div>
+          </div>
+					</fieldset>
+					<button type="submit" class="btn btn-primary" (click)="affectations()">Envoyer</button>
+				</form>
+			</div>
+		  </div>
+		  </div>

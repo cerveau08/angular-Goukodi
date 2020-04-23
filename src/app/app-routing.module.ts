@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { NewUserComponent } from './components/new-user/new-user.component';
-import { PutUserComponent } from './components/put-user/put-user.component';
 import { NewCompteComponent } from './components/new-compte/new-compte.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { RetraitComponent } from './components/retrait/retrait.component';
@@ -12,46 +11,64 @@ import { ListAdminComponent } from './components/list-admin/list-admin.component
 import { ListCaissierComponent } from './components/list-caissier/list-caissier.component';
 import { ListCompteComponent } from './components/list-compte/list-compte.component';
 import { ListPartenaireComponent } from './components/list-partenaire/list-partenaire.component';
-import { SidebarComponent } from './pages/sidebar/sidebar.component';
-import { DashComponent } from './pages/dash/dash.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DefaultComponent } from './layout/default/default.component';
+import { DepotComponent } from './components/depot/depot.component';
+import { AffectationComponent } from './components/affectation/affectation.component';
+import { TarifComponent } from './components/tarif/tarif.component';
 
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  { path: 'listUsers',
+    path: 'accueil',
+    component: DefaultComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'dashboard', component: DashboardComponent},
+      { path: 'listUsers',
    component: ListUsersComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'listAdmin',
-   component: ListAdminComponent,
-    canActivate: [AuthGuard]
+  { path: 'listUsers',
+  component: ListUsersComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listAdmin',
+  component: ListAdminComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listCompte',
+  component: ListCompteComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listPartenaire',
+  component: ListPartenaireComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listCaissier',
+  component: ListCaissierComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'tarif', component: TarifComponent, canActivate: [AuthGuard]},
+ { path: 'newuser', component: NewUserComponent, canActivate: [AuthGuard]},
+ { path: 'affectation', component: AffectationComponent, canActivate: [AuthGuard]},
+ { path: 'newcompte', component: NewCompteComponent, canActivate: [AuthGuard]},
+ { path: 'depot', component: DepotComponent, canActivate: [AuthGuard]},
+ { path: 'envoie', component: TransactionComponent, canActivate: [AuthGuard]},
+ { path: 'retrait', component: RetraitComponent, canActivate: [AuthGuard]},
+ {
+  path: '',
+  redirectTo: 'accueil',
+  pathMatch: 'full'
+},
+{ path: '**', redirectTo: 'accueil' }
+]
   },
-  { path: 'listCompte',
-   component: ListCompteComponent,
-    canActivate: [AuthGuard]
-  },
-  { path: 'accueil',
-   component: DashComponent,
-    canActivate: [AuthGuard]
-  },
-  { path: 'listPartenaire',
-   component: ListPartenaireComponent,
-    canActivate: [AuthGuard]
-  },
-  { path: 'listCaissier',
-   component: ListCaissierComponent,
-    canActivate: [AuthGuard]
-  },
-  { path: 'login', component: AuthenticationComponent, canActivate: [AuthGuard]},
-  { path: 'newuser', component: NewUserComponent, canActivate: [AuthGuard]},
-  { path: 'newcompte', component: NewCompteComponent, canActivate: [AuthGuard]},
-  { path: 'envoie', component: TransactionComponent, canActivate: [AuthGuard]},
-  { path: 'retrait', component: RetraitComponent, canActivate: [AuthGuard]},
-  { path: '**', redirectTo: '' }
+
+
+  { path: 'login', component: AuthenticationComponent}
+
+
 ];
 
 @NgModule({

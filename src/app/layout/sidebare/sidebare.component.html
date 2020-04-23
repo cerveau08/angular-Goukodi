@@ -1,0 +1,43 @@
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-text mx-3">GOUKODI</div>
+      </a>
+      <!-- Nav Item - Tables -->
+      <div class="nav-item ml-5">
+        <p class="centered"><a href="profile.html"><img src="dist/img/user2-160x160.jpg" class="img-circle" width="80"></a></p>
+        <span>email</span>
+        </div>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/dashboard" >
+          <h4>Dashboard <i class="fas fa-fw fa-table fa-2x text-light"></i></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/newuser" *ngIf="isAdmin() || isPAdmin()">
+          <h4>Creer users <i class="fas fa-user fa-3x text-light"></i></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/tarif" >
+          <h4>Les Tarifs <i class="fas fa-user fa-3x text-light"></i></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/newcompte" *ngIf="isAdmin()">
+          <h4>Creer Compte <i class="fas fa-calendar fa-2x text-light"></i></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/depot" *ngIf="isAdmin() || isCaissier">
+          <h4>Depot <i class="fas fa-calendar fa-2x text-light"></i></h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/affectation" *ngIf="isPAdmin()" >
+          <h4>Affectation<i class="fas fa-fw fa-table fa-2x text-light"></i></h4></a>
+      </li>
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+    </ul>
+    <!-- End of Sidebar -->

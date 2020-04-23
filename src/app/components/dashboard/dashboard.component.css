@@ -1,0 +1,9 @@
+[class*="col"] { margin-bottom: 20px; }
+img {
+  width: 100%;
+  height: 100%;
+}
+.container-fluid {
+  margin-top: 160px;
+  margin-left: 290px;
+}

@@ -47,7 +47,7 @@ export class NewUserComponent implements OnInit {
     this.userService.register(user).subscribe(
       data => {
         console.log(data);
-        this.ndm.navigateByUrl('/listUsers');
+        this.ndm.navigateByUrl('/accueil/listUsers');
       },
      error => {
         console.log(error);

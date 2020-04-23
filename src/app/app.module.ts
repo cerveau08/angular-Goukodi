@@ -18,12 +18,19 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { ListCompteComponent } from './components/list-compte/list-compte.component';
 import { ListPartenaireComponent } from './components/list-partenaire/list-partenaire.component';
 import { ListDepotComponent } from './components/list-depot/list-depot.component';
-import { FaireDepotComponent } from './components/faire-depot/faire-depot.component';
 import { ListAdminComponent } from './components/list-admin/list-admin.component';
 import { ListCaissierComponent } from './components/list-caissier/list-caissier.component';
 import { DashComponent } from './pages/dash/dash.component';
 import { SidebarComponent } from './pages/sidebar/sidebar.component';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DefaultComponent } from './layout/default/default.component';
+import { SidebareComponent } from './layout/sidebare/sidebare.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { AffectationComponent } from './components/affectation/affectation.component';
+import { LesPartsComponent } from './components/les-parts/les-parts.component';
+import { TarifComponent } from './components/tarif/tarif.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +47,18 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
     ListCompteComponent,
     ListPartenaireComponent,
     ListDepotComponent,
-    FaireDepotComponent,
     ListAdminComponent,
     ListCaissierComponent,
     DashComponent,
     SidebarComponent,
+    DashboardComponent,
+    DefaultComponent,
+    SidebareComponent,
+    NavbarComponent,
+    FooterComponent,
+    AffectationComponent,
+    LesPartsComponent,
+    TarifComponent
   ],
   imports: [
     BrowserModule,
