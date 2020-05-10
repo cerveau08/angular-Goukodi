@@ -20,8 +20,11 @@ export class DepotComponent implements OnInit {
   numeroCompte = '';
   solde = '';
   montant = '';
+  private roles: string[];
 
   ngOnInit() {
+    this.roles = JSON.parse(localStorage.getItem('roles'));
+    console.log(this.roles);
     this.registreCompte = new FormGroup({
       numeroCompte: new FormControl('')
     });

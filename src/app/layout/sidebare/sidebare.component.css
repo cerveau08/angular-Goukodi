@@ -1,0 +1,102 @@
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600);
+
+
+a{
+  text-decoration: none;
+  @include transition(all 0.6s ease);
+
+
+}
+
+.app{
+  height: 100vh;
+}
+/* -------------
+Sidebar
+----------------*/
+.sidebar {
+  position: absolute;
+
+  width: 17em;
+  height: 100%;
+  top: 0;
+  overflow:hidden;
+    background-color: #2A88AD;
+  -webkit-transform: translateZ(0);
+  visibility: visible;
+  -webkit-backface-visibility: hidden;
+}
+ .sidebar header{
+    background-color: #2A88AD;
+    width: 100%;
+    display:block;
+    padding: 4.55em	3em 0;
+  }
+.sidebar img{
+  width:100px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid;
+  box-shadow:0 0 0 4px rgba(255,255,255,0.2);
+}
+.sidebar h2{
+  font-weight:normal;
+  margin-bottom:0;
+  color: white;
+}
+/* -------------
+Sidebar Nav
+----------------*/
+.sidebar-nav {
+  position: fixed;
+
+  background-color: #2A88AD;
+  height: 100%;
+  font-weight: 400;
+  font-size: 1.2em;
+  overflow: auto;
+  padding-bottom: 6em;
+  z-index: 9;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+
+}
+ .sidebar-nav ul{
+    list-style:none;
+    display: block;
+    padding: 0;
+    margin: 0;
+ }
+   .sidebar-nav ul li{
+      margin-left: 0;
+      padding-left: 0;
+
+      display:inline-block;
+      width: 100%;
+   }
+  .sidebar-nav ul li a{
+        color: rgba(255,255,255,0.9);
+        font-size: 0.75em;
+        padding: 1.05em	1em;
+        position: relative;
+        display:block;
+  }
+  .sidebar-nav ul li a:hover{
+          background-color: rgb(12, 42, 54);
+          @include transition(all 0.6s ease);
+        }
+
+/* -------------
+Sidebar: icons
+----------------*/
+.sidebar-nav ul li i{
+        font-size: 1.8em;
+        padding-right: 0.5em;
+        width: 9em;
+        display: inline;
+        vertical-align:middle;
+      }
+
+
+

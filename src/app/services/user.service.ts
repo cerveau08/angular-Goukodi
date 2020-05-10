@@ -13,13 +13,13 @@ export class UserService {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/users`, user);
   }
   getAllUser() {
-    return this.httpClient.get(`${environment.apiUrl}/api/users`);
+    return this.httpClient.get(`${environment.apiUrl}/api/users.json`);
   }
   getAllAdmin() {
     return this.httpClient.get(`${environment.apiUrl}/api/users`);
   }
   getAllCaissier() {
-    return this.httpClient.get(`${environment.apiUrl}/api/users`);
+    return this.httpClient.get(`${environment.apiUrl}/api/caissier`);
   }
   getAllPartenaire() {
     return this.httpClient.get(`${environment.apiUrl}/api/partenaires`);

@@ -24,9 +24,13 @@ export class AuthenticationService {
 
       localStorage.setItem('token', user.token);
       localStorage.setItem('currentUser', JSON.stringify(user));
+      // tslint:disable-next-line:no-string-literal
       localStorage.setItem('username', JSON.stringify(decoded['username']));
       this.currentUserSubject.next(user);
+      // tslint:disable-next-line:no-string-literal
       localStorage.setItem('roles', JSON.stringify(decoded['roles']));
+      // tslint:disable-next-line:no-string-literal
+      localStorage.setItem('email', JSON.stringify(decoded['email']));
       return user;
       }));
   }

@@ -31,6 +31,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AffectationComponent } from './components/affectation/affectation.component';
 import { LesPartsComponent } from './components/les-parts/les-parts.component';
 import { TarifComponent } from './components/tarif/tarif.component';
+import { ListAffectationComponent } from './components/list-affectation/list-affectation.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { TarifComponent } from './components/tarif/tarif.component';
     FooterComponent,
     AffectationComponent,
     LesPartsComponent,
-    TarifComponent
+    TarifComponent,
+    ListAffectationComponent
   ],
   imports: [
     BrowserModule,
