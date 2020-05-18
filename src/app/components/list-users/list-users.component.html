@@ -1,30 +1,36 @@
-<div class="card-header py-3">
-  <h6 class="m-0 font-weight-bold text-dark text-center">Les Utilisateurs</h6>
+<div class="card">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark text-center">Les Utilisateurs</h6>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+    width="100%">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Profil</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let user of dataUser">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.profil.libelle}}</td>
+          <td>
+            <div *ngIf = "user.isActive; else elseBlock">
+              <button class="btn btn-success" (click)="onStatus(user.id)">Active</button>
+            </div>
+            <ng-template #elseBlock>
+              <button class="btn btn-danger" (click)="onStatus(user.id)">Desactive</button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">username</th>
-      <th scope="col">Email</th>
-      <th scope="col">Profil</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = "let user of dataUser">
-      <th scope="row">{{user.id}}</th>
-      <td>{{user.username}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.profil.libelle}}</td>
-      <td>
-        <div *ngIf = "user.isActive; else elseBlock">
-          <button class="btn btn-success" (click)="onStatus(user.id)">Active</button>
-        </div>
-          <ng-template #elseBlock>
-            <button class="btn btn-danger" (click)="onStatus(user.id)">Desactive</button>
-          </ng-template>
-      </td>
-    </tr>
-  </tbody>
-</table>

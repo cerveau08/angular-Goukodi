@@ -8,9 +8,6 @@ body{
   background-clip: initial;
   background-color: initial;
 }
-.top-buffer-1 { margin-top:60px; }
-                  .top-buffer-1 { margin-right:40px; }
-.top-buffer { margin-top:1px; }
 fieldset.scheduler-border {
   border: 1px groove #ddd !important;
   padding: 0 0.5em 0.5em 0.5em !important;
@@ -38,7 +35,7 @@ fieldset.scheduler-border {
 {
   text-align: center;
   height: 80px;
-  background: -webkit-linear-gradient(left, rgb(119, 146, 236),  rgb(80, 52, 238));
+  background: -webkit-linear-gradient(left, #3483AC,  rgb(30, 139, 198));
   color: #fff;
   font-weight: bold;
   line-height: 80px;
@@ -48,7 +45,7 @@ fieldset.scheduler-border {
 {
   padding: 5%;
   border: 1px solid #ced4da;
-  margin-bottom: 2%;
+ 
 }
 .form-control{
   border-radius:1.5rem;
@@ -93,7 +90,7 @@ fieldset.scheduler-border {
     width: 50%;
    }
    .col-sm-5 {
-    width: 41.66666667%;
+    width: 21.66666667%;
    }
    .col-sm-4 {
     width: 33.33333333%;

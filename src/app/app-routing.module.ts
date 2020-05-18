@@ -16,6 +16,7 @@ import { DefaultComponent } from './layout/default/default.component';
 import { DepotComponent } from './components/depot/depot.component';
 import { AffectationComponent } from './components/affectation/affectation.component';
 import { TarifComponent } from './components/tarif/tarif.component';
+import { LesPartsComponent } from './components/les-parts/les-parts.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
   component: ListCaissierComponent,
    canActivate: [AuthGuard]
  },
+ { path: 'parts', component: LesPartsComponent, canActivate: [AuthGuard]},
  { path: 'tarif', component: TarifComponent, canActivate: [AuthGuard]},
  { path: 'newuser', component: NewUserComponent, canActivate: [AuthGuard]},
  { path: 'affectation', component: AffectationComponent, canActivate: [AuthGuard]},
@@ -58,10 +60,10 @@ const routes: Routes = [
  { path: 'retrait', component: RetraitComponent, canActivate: [AuthGuard]},
  {
   path: '',
-  redirectTo: 'accueil',
+  redirectTo: 'dashboard',
   pathMatch: 'full'
 },
-{ path: '**', redirectTo: 'accueil' }
+{ path: '**', redirectTo: 'dashboard' }
 ]
   },
 

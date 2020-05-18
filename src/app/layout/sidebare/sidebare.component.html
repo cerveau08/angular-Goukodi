@@ -1,4 +1,4 @@
-    <!--
+<!--
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -25,8 +25,8 @@
         <a class="nav-link" routerLink="/accueil/newcompte" *ngIf="isAdmin()">
           <h4>Creer Compte <i class="fas fa-calendar fa-2x text-light"></i></h4></a>
       </li>
-      <li class="nav-item" ">
-        <a class="nav-link" routerLink="/accueil/depot" *ngIf="isCaissier >
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil/depot" *ngIf="isCaissier">
           <h4>Depot <i class="fas fa-calendar fa-2x text-light"></i></h4></a>
       </li>
       <li class="nav-item">
@@ -40,31 +40,103 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
       </div>
     </ul>
-     -->
-     <section class="app">
-      <aside class="sidebar">
-             <header>
-              <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
-              <h2>John D.</h2>
-          </header>
-        <nav class="sidebar-nav">
-          <ul>
-            <li >
-              <a routerLink="/accueil/dashboard"> <span class="">Accueil</span></a>
-            </li>
-            <li>
-              <a routerLink="/accueil/listCompte" > <span>Les Comptes</span></a>
-            </li>
-            <li >
-              <a routerLink="/accueil/listUsers" > <span class="">Les Utilisateurs</span></a>
-            </li>
-            <li>
-              <a routerLink="/accueil/dashboard"> <span class="">Les Quotas</span></a>
-            </li>
-            <li>
-              <a routerLink="/accueil/tarif" class="nav-link"> <span class="">Les Tarifs</span></a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-    </section>
+
+  <section class="app">
+    <aside class="sidebar">
+           <header>
+            <img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/128.jpg" />
+            <h2>John D.</h2>
+        </header>
+      <nav class="sidebar-nav">
+        <ul>
+          <li >
+            <a routerLink="/accueil/dashboard"> <span class="">Accueil</span></a>
+          </li>
+          <li>
+            <a routerLink="/accueil/listCompte" > <span>Les Comptes</span></a>
+          </li>
+          <li >
+            <a routerLink="/accueil/listUsers" > <span class="">Les Utilisateurs</span></a>
+          </li>
+          <li>
+            <a routerLink="/accueil/dashboard"> <span class="">Les Quotas</span></a>
+          </li>
+          <li>
+            <a routerLink="/accueil/tarif" class="nav-link"> <span class="">Les Tarifs</span></a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </section>
+-->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="assets/images/cerv.jpg" class="img-circle elevation-2.2" alt="User Image">
+        <h2>Malick COLY</h2>
+      </div>
+
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+
+        <li class="nav-item">
+          <a routerLink="/accueil/dashboard" class="nav-link">
+            <i class="nav-icon far fa-calendar-alt"></i>
+            <p>
+              Accueil
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/accueil/listUsers" class="nav-link">
+            <i class="nav-icon far fa-image"></i>
+            <p>
+              Les Utilisateurs
+            </p>
+          </a>
+        </li>
+        <li class="nav-item has-treeview">
+          <a routerLink="/accueil/tarif" class="nav-link">
+            <i class="nav-icon far fa-envelope"></i>
+            <p>
+              Tarifs
+            </p>
+          </a>
+
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/accueil/listCompte" class="nav-link">
+            <i class="nav-icon far fa-circle text-danger"></i>
+            <p class="text">Les Comptes</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Warning</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-circle text-info"></i>
+            <p>Informational</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

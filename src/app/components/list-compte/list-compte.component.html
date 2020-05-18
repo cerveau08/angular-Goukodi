@@ -1,18 +1,27 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Numero Compte</th>
-      <th scope="col">Date de Creation</th>
-      <th scope="col">Solde</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor = "let compte of dataUser">
-      <th scope="row">{{compte.id}}</th>
-      <td>{{compte.numeroCompte}}</td>
-      <td>{{compte.dateCreation}}</td>
-      <td>{{ compte.solde }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="card">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark text-center">Les Comptes</h6>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+    width="100%">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Numero Compte</th>
+          <th scope="col">Date de Creation</th>
+          <th scope="col">Solde</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let compte of dataUser">
+          <th scope="row">{{compte.id}}</th>
+          <td>{{compte.numeroCompte}}</td>
+          <td>{{compte.dateCreation}}</td>
+          <td>{{ compte.solde }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

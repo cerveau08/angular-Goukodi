@@ -1,1 +1,64 @@
-<p>les-parts works!</p>
+
+		<div class="container register-form top-buffer-1">
+		  <div class="form">
+			  <div class="note">
+				<p>Faire Un Transfert D'argent</p>
+			  </div>
+		 <div class="form-content bk">
+       <form [formGroup]="registreCompte">
+        <fieldset class="scheduler-border">
+          <legend class="scheduler-border">Entrer Le Code</legend>
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="cname">Compte</label>
+              <input type="name" class="form-control" [(ngModel)]="numeroCompte" formControlName="numeroCompte" id="title" placeholder="Numero Compte" name="email">
+            </div>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary" (click)="entrerNumeroCompte()">Envoyer</button>
+       </form>
+				<form [formGroup]="registrePart">
+					<fieldset class="scheduler-border">
+						<legend class="scheduler-border">Faire Depot</legend>
+            <div class="row">
+							<div class="col-sm-3">
+							  <label for="nomComplet">Numero Compte</label>
+							  <input type="nomComplet" class="form-control" [value]="numeroCompte" id="nomComplet" placeholder="Numero Compte" name="nomComplet">
+              </div>
+
+          </div>
+					</fieldset>
+					<button type="submit" class="btn btn-primary" (click)="quotaE()">Envoyer</button>
+				</form>
+			</div>
+		  </div>
+      </div>
+
+
+      <div class="card">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-dark text-center">Les Tarifs</h6>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+          width="100%">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Montant Inf</th>
+                <th scope="col">Montant Sup</th>
+                <th scope="col">Frais</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let transaction of dataUser">
+                <th scope="row">{{transaction.id}}</th>
+                <td>{{transaction.commissionE}}</td>
+                <td>{{transaction.etatPartE}}</td>
+                <td>{{ transaction.dateEnvoi }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

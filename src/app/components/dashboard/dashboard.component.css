@@ -1,9 +1,91 @@
-[class*="col"] { margin-bottom: 20px; }
-img {
+.container {
+  position: relative;
+  top: 120px;
+  left: 120px;
+  width: 70%;
+}
+
+.envoie {
+  width: 86%;
+  height: 86%;
+}
+.compte {
   width: 100%;
   height: 100%;
 }
-.container-fluid {
-  margin-top: 160px;
-  margin-left: 290px;
+
+.fond {
+  width: 100%;
+  height: 100%;
 }
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.retrait {
+  width: 100%;
+  height: 100%;
+}
+
+.part {
+  width: 100%;
+  height: 100%;
+}
+@media print {
+  body * {
+    visibility: visible;
+    }
+    #section-to-print, #section-to-print * {
+    visibility: hidden;
+    }
+    .container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    }
+   .col-lg-3 {
+    float: left;
+   }
+   .col-sm-12 {
+    width: 100%;
+   }
+   .col-sm-11 {
+    width: 91.66666667%;
+   }
+   .col-sm-10 {
+    width: 83.33333333%;
+   }
+   .col-sm-9 {
+    width: 75%;
+   }
+   .col-sm-8 {
+    width: 66.66666667%;
+   }
+   .col-sm-7 {
+    width: 58.33333333%;
+   }
+   .col-sm-6 {
+    width: 50%;
+   }
+   .col-sm-5 {
+    width: 41.66666667%;
+   }
+   .col-sm-4 {
+    width: 33.33333333%;
+   }
+   .col-lg-3 {
+    width: 25%;
+   }
+   .col-sm-2 {
+    width: 16.66666667%;
+   }
+   .envoie {
+    width: 50%;
+    height: 50%;
+   }
+}
+
+
+

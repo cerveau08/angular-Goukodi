@@ -22,23 +22,24 @@ Sidebar
   height: 100%;
   top: 0;
   overflow:hidden;
-    background-color: #2A88AD;
+    background-color: #3483AC;
   -webkit-transform: translateZ(0);
   visibility: visible;
   -webkit-backface-visibility: hidden;
 }
  .sidebar header{
-    background-color: #2A88AD;
+    background-color: rgb(80, 19, 233);
     width: 100%;
     display:block;
     padding: 4.55em	3em 0;
   }
 .sidebar img{
+
   width:100px;
-  border-radius:50%;
+  border-radius:100%;
   overflow:hidden;
   border:4px solid;
-  box-shadow:0 0 0 4px rgba(255,255,255,0.2);
+  box-shadow:0 5px 0 4px rgba(255,255,255,0.2);
 }
 .sidebar h2{
   font-weight:normal;
@@ -51,7 +52,7 @@ Sidebar Nav
 .sidebar-nav {
   position: fixed;
 
-  background-color: #2A88AD;
+  background-color: rgb(80, 19, 231);
   height: 100%;
   font-weight: 400;
   font-size: 1.2em;

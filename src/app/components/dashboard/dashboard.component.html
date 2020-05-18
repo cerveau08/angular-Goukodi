@@ -1,50 +1,87 @@
-<!--admin-->
-<div class="container-fluid" *ngIf="isAdmin()">
+<div class="container">
   <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/fond1.png" alt="fond"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/newcompte" ><img src="assets/images/comptes.png" alt="compte"></a></div>
-  </section>
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/parts" ><img src="assets/images/part.png" alt="part"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard"><img src="assets/images/images1.jpg" alt="image1"></a></div>
-  </section>
-</div>
-<!--partenaire-->
-<div class="container-fluid" *ngIf="isPAdmin()">
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/fond1.png" alt="fond"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/envoie" ><img src="assets/images/envoie.png" alt="envoie"></a></div>
-  </section>
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/parts" ><img src="assets/images/part.png" alt="part"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/retrait" ><img src="assets/images/retrait.png" alt="retrait"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard"><img src="assets/images/images1.jpg" alt="image1"></a></div>
-  </section>
+  <div class="col-lg-3 col-6" *ngIf="isAdmin()" >
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/newcompte" ><img src="assets/images/comptes.png" alt="compte" class="compte"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6" *ngIf="isPCaissier() || isPAdmin() || isCaissier()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/comptes.png" alt="compte" class="compte"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-5" *ngIf="isPCaissier() || isPAdmin()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/envoie" ><img src="assets/images/envoie.png" alt="envoie" class="envoie"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-5" *ngIf="isCaissier() || isAdmin()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/depot" ><img src="assets/images/envoie.png" alt="envoie" class="envoie"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-5">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/image2.png" alt="fond" class="fond"></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="row">
+  <div class="col-lg-3 col-6">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/dashboard"><img src="assets/images/image4.png" alt="image1" class="image"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6" *ngIf="isPCaissier() || isPAdmin()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/retrait" ><img src="assets/images/retrait.png" alt="retrait" class="retrait"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6" *ngIf="isCaissier() || isAdmin()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/retrait.png" alt="retrait" class="retrait"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6" *ngIf="isAdmin() || isPAdmin()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/parts" ><img src="assets/images/part.png" alt="part" class="part"></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-6" *ngIf="isCaissier() || isPCaissier()">
+    <!-- small card -->
+    <div class="small-box">
+      <div class="inner">
+        <a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/part.png" alt="part" class="part"></a>
+      </div>
+    </div>
+  </div>
+</section>
 </div>
 
-<!--caissier-->
-<div class="container-fluid" *ngIf="isCaissier()">
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/fond1.png" alt="fond"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isPCaissier()"><a class="nav-link" routerLink="/accueil/envoie" ><img src="assets/images/envoie.png" alt="envoie"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/newcompte" ><img src="assets/images/comptes.png" alt="compte"></a></div>
-  </section>
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/parts" ><img src="assets/images/part.png" alt="part"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isPCaissier()"><a class="nav-link" routerLink="/accueil/retrait" ><img src="assets/images/retrait.png" alt="retrait"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard"><img src="assets/images/images1.jpg" alt="image1"></a></div>
-  </section>
-</div>
-<!--caissier partenaire-->
-<div class="container-fluid" *ngIf="isPCaissier()">
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard" ><img src="assets/images/fond1.png" alt="fond"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isPCaissier()"><a class="nav-link" routerLink="/accueil/envoie" ><img src="assets/images/envoie.png" alt="envoie"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/newcompte" ><img src="assets/images/comptes.png" alt="compte"></a></div>
-  </section>
-  <section class="row">
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isAdmin()"><a class="nav-link" routerLink="/accueil/parts" ><img src="assets/images/part.png" alt="part"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2" *ngIf="isPCaissier()"><a class="nav-link" routerLink="/accueil/retrait" ><img src="assets/images/retrait.png" alt="retrait"></a></div>
-    <div class="col-xs-4 col-sm-3 col-lg-2 col-md-2"><a class="nav-link" routerLink="/accueil/dashboard"><img src="assets/images/images1.jpg" alt="image1"></a></div>
-  </section>
-</div>

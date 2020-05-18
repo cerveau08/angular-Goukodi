@@ -9,8 +9,7 @@ body{
   background-clip: initial;
   background-color: initial;
 }
-.top-buffer-1 { margin-top:20px; }
-.top-buffer { margin-top:1px; }
+
 fieldset.scheduler-border {
   border: 1px groove #ddd !important;
   padding: 0 1.1em 1.1em 1.1em !important;
@@ -48,7 +47,7 @@ fieldset.scheduler-border {
 {
   padding: 1%;
   border: 1px solid #ced4da;
-  margin-bottom: 2%;
+
 }
 .form-control{
   border-radius:1.5rem;
