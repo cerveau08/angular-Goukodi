@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 export class NewUserComponent implements OnInit {
   registerForm: FormGroup;
   profil;
+  error: string;
+  errorToken: string;
   constructor(private profils: ProfilService, private formBuilder: FormBuilder, private userService: UserService, private ndm: Router) { }
 
   ngOnInit() {
@@ -47,10 +49,25 @@ export class NewUserComponent implements OnInit {
     this.userService.register(user).subscribe(
       data => {
         console.log(data);
+        if (data) {
+          alert('Utilisateur ajouté avec succées...');
+        }
         this.ndm.navigateByUrl('/accueil/listUsers');
       },
-     error => {
-        console.log(error);
+      errormsgHttp => {
+        // function de dump des donnes de l'entete API Backend By Son Excellence WADE
+        console.log(errormsgHttp);
+          // recuperation des messages d'erreurs de l'API BacKend avec les codes Http By Son Excellence WADE
+        this.error = errormsgHttp.error['hydra:description'];
+          // Affichage Message Token Expired
+        this.errorToken = errormsgHttp.error.message;
+        if (this.errorToken === 'Expired JWT Token') {
+          alert('Votre session est expirée... Merci de se connecter à nouveau de votre compte');
+          return this.ndm.navigateByUrl('');
+        } else {
+          // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
+          alert(this.error);
+        }
       }
     );
   }

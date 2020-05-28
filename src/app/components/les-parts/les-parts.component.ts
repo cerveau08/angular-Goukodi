@@ -68,9 +68,7 @@ export class LesPartsComponent implements OnInit {
         this.numeroCompte = compt.numeroCompte;
         this.solde = compt.solde;
         this.cerv = 1;
-        const compteEmetteur = {
-          compteEmetteur: this.compteEmetteur
-        };
+        const compteEmetteur = this.compteEmetteur;
         console.log(compteEmetteur);
         this.quotaService.getquotaE(compteEmetteur).subscribe(
           // tslint:disable-next-line:no-shadowed-variable

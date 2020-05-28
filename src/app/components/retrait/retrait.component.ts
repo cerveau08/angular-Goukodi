@@ -19,6 +19,8 @@ export class RetraitComponent implements OnInit {
   montant = '';
   telephoneR = '';
   nomCompletR = '';
+  error = '';
+  errorToken = '';
   constructor( private retraitService: RetraitService, private formBuilder: FormBuilder, private ndm: Router) { }
 
   ngOnInit() {
@@ -46,9 +48,27 @@ export class RetraitComponent implements OnInit {
       data => {
         console.log(data);
       },
-     error => {
-        console.log(error);
-      }
+      errormsgHttp => {
+        // function de dump des donnes de l'entete API Backend By Son Excellence WADE
+          console.log(errormsgHttp);
+
+          // recuperation des messages d'erreurs de l'API BacKend avec les codes Http By Son Excellence WADE
+          this.error = errormsgHttp.error['hydra:description'];
+
+          // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
+          alert(this.error);
+
+            // Affichage Message Token Expired
+          this.errorToken = errormsgHttp.error.message;
+
+          if (this.errorToken === 'Expired JWT Token') {
+            alert('Votre session est expirée... Merci de se connecter à nouveau de votre compte');
+            return this.ndm.navigateByUrl('');
+          } else {
+             // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
+           alert(this.error);
+          }
+       }
     );
    }
    entrerCode() {
@@ -71,13 +91,13 @@ export class RetraitComponent implements OnInit {
       } else {
         // tslint:disable-next-line:no-unused-expression
         error => {
-          console.warn('connexion echoue !!!');
+          alert('Ce Code n\'existe pas');
         };
       }
     },
     error => {
       console.log(error);
-      console.log();
+      alert('Ce Code est invalide');
     });
   }
 }

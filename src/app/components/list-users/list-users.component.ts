@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-list-users',
@@ -8,6 +9,7 @@ import { UserService } from '../../services/user.service';
 })
 export class ListUsersComponent implements OnInit {
    dataUser: any;
+   user: User;
   constructor(private userService: UserService ) { }
 
   ngOnInit() {
@@ -30,5 +32,18 @@ export class ListUsersComponent implements OnInit {
         }
       );
     });
+  }
+  AfficheImage(user: User) {
+    if (user.imageProfil) {
+      console.log(user.imageProfil);
+
+      return this.userService.Image(user.imageProfil);
+    } else {
+      return null;
+    }
+  }
+
+  getImage(user: User) {
+    return this.userService.getThumbnail(user);
   }
 }

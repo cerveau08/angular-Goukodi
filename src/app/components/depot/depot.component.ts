@@ -21,6 +21,8 @@ export class DepotComponent implements OnInit {
   solde = '';
   montant = '';
   private roles: string[];
+  error = '';
+  errorToken = '';
 
   ngOnInit() {
     this.roles = JSON.parse(localStorage.getItem('roles'));
@@ -48,10 +50,32 @@ export class DepotComponent implements OnInit {
     this.depotService.depots(depot).subscribe(
       data => {
         console.log(data);
+        if (data) {
+          alert('Utilisateur ajouté avec succées...');
+        }
+        this.ndm.navigateByUrl('/accueil/listCompte');
       },
-     error => {
-        console.log(error);
-      }
+      errormsgHttp => {
+        // function de dump des donnes de l'entete API Backend By Son Excellence WADE
+          console.log(errormsgHttp);
+
+          // recuperation des messages d'erreurs de l'API BacKend avec les codes Http By Son Excellence WADE
+          this.error = errormsgHttp.error['hydra:description'];
+
+
+           // Affichage Message Token Expired
+          this.errorToken = errormsgHttp.error.message;
+
+          if (this.errorToken === 'Expired JWT Token') {
+              alert('Votre session est expirée... Merci de se connecter à nouveau de votre compte');
+              return this.ndm.navigateByUrl('');
+            } else {
+             // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
+           alert(this.error);
+            }
+
+
+       }
     );
    }
    entrerNumeroCompte() {

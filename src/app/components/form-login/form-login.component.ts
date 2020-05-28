@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class FormLoginComponent implements OnInit {
   loginForm: FormGroup;
+  error = '';
   constructor(
      private authenticationService: AuthenticationService, private ndm: Router
   ) { }
@@ -31,10 +32,22 @@ onSubmit() {
       console.warn(data);
       this.ndm.navigate(['accueil']);
     },
-    error => {
-      console.warn('connexion echoue !!!');
+    errormsgHttp => {
+      // function de dump des donnes de l'entete API Backend By Son Excellence WADE
+        console.log(errormsgHttp);
 
-    }
+        // recuperation des messages d'erreurs de l'API BacKend avec les codes Http By Son Excellence WADE
+        this.error = errormsgHttp.error.message;
+
+         // verifier si le msg est invalid credentialpour personnaliser le msg d'alerte by Son Excellence WADE
+        if (this.error === 'Invalid credentials.') {
+         alert('login ou mot de passe invalide !!!');
+       } else {
+        // Afficher les autre msg d'erreurs du backends
+         alert(this.error);
+       }
+
+      }
   );
 }
 }

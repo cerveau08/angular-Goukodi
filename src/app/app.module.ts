@@ -32,6 +32,8 @@ import { AffectationComponent } from './components/affectation/affectation.compo
 import { LesPartsComponent } from './components/les-parts/les-parts.component';
 import { TarifComponent } from './components/tarif/tarif.component';
 import { ListAffectationComponent } from './components/list-affectation/list-affectation.component';
+import { ModifTarifComponent } from './components/modif-tarif/modif-tarif.component';
+import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { ListAffectationComponent } from './components/list-affectation/list-aff
     AffectationComponent,
     LesPartsComponent,
     TarifComponent,
-    ListAffectationComponent
+    ListAffectationComponent,
+    ModifTarifComponent,
+    ListTransactionComponent
   ],
   imports: [
     BrowserModule,

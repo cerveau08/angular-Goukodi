@@ -5,4 +5,5 @@ export class User {
   isActive: boolean;
   token?: string;
   roles?: string;
+  imageProfil?: string;
 }
