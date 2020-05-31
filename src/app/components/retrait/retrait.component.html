@@ -58,23 +58,27 @@
         <h3 class="text-center titre">Reçu de Retrait</h3>
         <div class="row">
             <p class="col-sm-3"><strong>Entreprise :</strong> GOUKODI </p>
-            <p class="col-sm-3"><strong>Guichetier :</strong> {{coly.compteRecepteurt.numeroCompte}}</p>
-            <p class="col-sm-3"><strong>Date :</strong> {{coly.DateRetrait}}</p>
+            <p class="col-sm-3"><strong>Guichetier :</strong> {{coly.compteRecepteur.numeroCompte}}</p>
+            <p class="col-sm-3"><strong>Date :</strong> {{coly.dateRetrait}}</p>
         </div>
         <fieldset>
             <legend>Bénéficiaire</legend>
-            <p>Nom : {{coly.nomCompletR}}</p>
-            <p>Téléphone : {{coly.telephoneR}}</p>
+            <p>Nom : {{this.nomCompletR}}</p>
+            <p>Téléphone : {{this.telephoneR}}</p>
             <p>NCI : {{coly.numeroPieceR}}</p>
         </fieldset>
         <fieldset>
             <legend>Envoyeur</legend>
-            <p>Nom : {{coly.nomCompletE}}</p>
-            <p>Téléphone : {{coly.TelephoneE}}</p>
+            <p>Nom : {{this.nomCompletE}}</p>
+            <p>Téléphone : {{this.telephoneE}}</p>
         </fieldset>
         <fieldset>
             <legend>Transaction</legend>
-            <p>Code : {{coly.code}}</p>
-            <p>Montant Envoyé : {{coly.montant}}</p>
+            <p>Code : {{this.code}}</p>
+            <p>Montant Envoyé : {{this.montant}}</p>
         </fieldset>
     </fieldset>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill9/dist/polyfill.js"></script>

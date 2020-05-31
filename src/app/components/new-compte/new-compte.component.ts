@@ -2,6 +2,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CompteService } from '../../services/compte.service';
 import { Router } from '@angular/router';
+import Swal from 'node_modules/sweetalert2/dist/sweetalert2.js';
+import 'node_modules/sweetalert2/dist/sweetalert2.css';
 
 @Component({
   selector: 'app-new-compte',
@@ -18,6 +20,8 @@ export class NewCompteComponent implements OnInit {
   telephone = '';
   adresse = '';
   nomComplet = '';
+  afficherContrat = false;
+  coly: any;
   username = '';
   email = '';
   password = '';
@@ -92,15 +96,44 @@ export class NewCompteComponent implements OnInit {
    if (this.cerv !== 1) {
   this.loading = false;
 
-  this.compteService.create(compteNP).subscribe(
-      data => {
-       console.log(data);
-       this.ndm.navigateByUrl('/accueil/listCompte');
-       this.loading = false;
-      },
-      error => {
-        console.log(error);
-      }
+  this.compteService.creates(compteNP).then(
+    coly => {
+      this.coly = coly;
+      Swal.fire({
+        title: '<strong>Info</strong>',
+        html:
+            '<h3>Partenaire</h3>'
+            + '<p>Prenom et Nom : ' + coly.nomComplet + '</p>'
+            + '<p>Ninea : ' + coly.ninea + '</p>'
+            + '<p>Registre Commerciale : ' + coly.registreCommercial + '</p>'
+            + '<p>Adresse : ' + coly.adresse + '</p>'
+            + '<p>Telephone : ' + coly.telephone + '</p>'
+            + '<h3>Compte</h3>'
+            + '<p>Numero de Compte : ' + coly.numeroCompte + '</p>'
+            + '<p>Date de Creation : ' + coly.dateCreation + '</p>',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonColor: 'rgb(119, 146, 236)',
+        confirmButtonText:
+          '<i class="fa fa-thumbs-up"></i> Ok',
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+      }).then((result) => {
+        if (result.value) {
+          this.contrat();
+        }
+      });
+      console.log(coly);
+},
+error => {
+  console.log('Erreur : ' + error.message);
+  if (error.error.message) {
+    Swal.fire(
+      'Erreur',
+      error.error.message,
+      'error'
+    );
+  }
+}
     );
   } else {
     this.loading = true;
@@ -162,5 +195,11 @@ export class NewCompteComponent implements OnInit {
       console.log(error);
       console.log();
     });
+  }
+  contrat() {
+    this.afficherContrat = true;
+    setTimeout(() => {
+      window.print();
+    }, 3000);
   }
 }

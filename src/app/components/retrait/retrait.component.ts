@@ -22,6 +22,8 @@ export class RetraitComponent implements OnInit {
   montant = '';
   telephoneR = '';
   nomCompletR = '';
+  telephoneE = '';
+  nomCompletE = '';
   error = '';
   errorToken = '';
   coly: any;
@@ -49,22 +51,23 @@ export class RetraitComponent implements OnInit {
     };
     console.log(retrait);
 
-    this.transactionService.transactions(retrait).then(
+    this.transactionService.transactionsR(retrait).then(
       coly => {
         this.coly = coly;
+        console.log(coly);
         Swal.fire({
           title: '<strong>Info</strong>',
           html:
               '<h3>Bénéficiaire</h3>'
-              + '<p>Nom : ' + coly.nomCompletR + '</p>'
-              + '<p>Téléphone : ' + coly.telephoneR + '</p>'
-              + '<p>NCI : ' + coly.numeroPieceE + '</p>'
+              + '<p>Nom : ' + this.nomCompletR + '</p>'
+              + '<p>Téléphone : ' + this.telephoneR + '</p>'
+              + '<p>NCI : ' + coly.numeroPieceR + '</p>'
               + '<h3>Envoyeur</h3>'
-              + '<p>Nom : ' + coly.nomCompletE + '</p>'
-              + '<p>Téléphone : ' + coly.TelephoneE + '</p>'
+              + '<p>Nom : ' + this.nomCompletE + '</p>'
+              + '<p>Téléphone : ' + this.telephoneE + '</p>'
               + '<h3>Transaction</h3>'
-              + '<p>Code : <strong>' + coly.code + '</strong></p>'
-              + '<p>Montant Envoyé : ' + coly.montant + '</p>',
+              + '<p>Code : <strong>' + this.code + '</strong></p>'
+              + '<p>Montant Envoyé : ' + this.montant + '</p>',
           showCloseButton: true,
           focusConfirm: false,
           confirmButtonColor: 'rgb(119, 146, 236)',
@@ -76,7 +79,6 @@ export class RetraitComponent implements OnInit {
             this.recu();
           }
         });
-        console.log(coly);
   },
     error => {
         console.log('Erreur : ' + error.message);
@@ -103,6 +105,8 @@ export class RetraitComponent implements OnInit {
         this.montant = cod.montant;
         this.nomCompletR = cod.nomCompletR;
         this.telephoneR = cod.telephoneR;
+        this.nomCompletE = cod.nomCompletE;
+        this.telephoneE = cod.telephoneE;
         this.registreRetrait.get('montant').disable();
         this.registreRetrait.get('nomCompletR').disable();
         this.registreRetrait.get('telephoneR').disable();

@@ -1,4 +1,4 @@
-<div class="container register-form top-buffer-1">
+<div class="container register-form top-buffer-1" *ngIf="!afficherContrat">
 		  <div class="form">
 			  <div class="note">
 				<p>Creation D'un Compte Partenaire</p>
@@ -68,3 +68,50 @@
 			</div>
 		  </div>
     </div>
+    <fieldset *ngIf="afficherContrat" >
+      <legend>GOUKODI</legend>
+      <h3 class="text-center titre">Contrat de Partenariat</h3>
+      <div class="row">
+          <p class="col-sm-3"><strong>Entreprise :</strong> GOUKODI </p>
+          <p class="col-sm-3"> Malick Coly, représentant de la société Goukodi, immatriculée au RCS sous le numéro 1767 1994 0 3036 située au Parcelles Assainies Unite19, villa 107</p>
+          <p>Et {{coly.nomComplet}}, de nationalité Sénégalaise immatriculé(e) à la Registre commercial {{coly.registreCommercial}} sous le ninea {{coly.ninea}} ,demeurant à {{coly.adresse}}. Son numéro téléphone est {{coly.telephone}}</p>
+            <p>ci-après dénommé le partenariat,</p>
+      </div>
+      <fieldset >
+          <legend>Il a été arrêté et convenu ce qui suit :</legend>
+
+            <p>Article 1 : Engagement</p>
+            <p>Le partenariat a demare à compter du {{coly.comptes.dateCreation}}</p>
+            <p>Le partenaire déclare être, à compter de la date effective de partenariat, libre de tout engagement de nature à faire obstacle à l’exécution du présent contrat.</p>
+
+            <p>Article 2 : Fonctions et attributions</p>
+            <p>Le partenaire est engagé en qualité d’utiliser notre plateforme pour créer des comptes et effectuer des transactions sur ses comptes</p>
+
+            <p>Article 3 : Période d’essai</p>
+            <p>Il est convenu entre les parties au contrat de travail une période indéterminée au cours de laquelle chacune des parties pourra rompre sans indemnités et sans avoir à motiver sa décision.</p>
+
+            <p>Article 4 : Lieu de travail</p>
+            <p>Le partenaire exercera ses fonctions dans les locaux qui lui convient</p>
+
+            <p>Article 5 : Rémunération</p>
+            <p>En contrepartie, le partenaire percevra une rémunération sur commission pour chaque transaction effectuée</p>
+            <p>commission Envoi = (frais de transfert X 10)/100</p>
+            <p>commission Retrait = (frais de transfert X 20)/100</p>
+
+            <p>Article 6 : Préavis</p>
+            <p>Chacune des parties a la possibilité de rompre le présent contrat dans les conditions prévues par la loi, sous réserve de respecter le préavis de :</p>
+                <p>• Malick Coly pour le blocage et l’annulation ;</p>
+            <p>sauf situation pour laquelle l’obligation d’effectuer un préavis est écartée, c’est-à-dire pour faute grave ou faute lourde.</p>
+      </fieldset>
+      <fieldset >
+          <legend>Transaction</legend>
+          <p>Fait en double exemplaire au Parcelles Assainies, le {{coly.comptes.dateCreation}}.</p>
+            <p>Signature à faire précéder de la mention manuscrite  » lu et approuvé  »</p>
+            <p>Directeur Général de Goukodi,                                                               	Le partenaire.</p>
+      </fieldset>
+  </fieldset>
+  <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
+
+<!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill9/dist/polyfill.js"></script>
+

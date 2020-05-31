@@ -16,6 +16,9 @@ export class TransactionService {
   transactions(data: any) {
     return this.postElement(data, '/api/transactions');
   }
+  transactionsR(data: any) {
+    return this.postElement(data, '/api/retrait');
+  }
   getAllTarifs() {
     return this.httpClient.get(`${environment.apiUrl}/api/tarifs.json`);
   }
