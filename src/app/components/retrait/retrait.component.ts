@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { RetraitService } from '../../services/retrait.service';
 import { Router } from '@angular/router';
-import { Retrait } from '../../models/retrait';
+import Swal from 'node_modules/sweetalert2/dist/sweetalert2.js';
+import 'node_modules/sweetalert2/dist/sweetalert2.css';
+import { TransactionService } from 'src/app/services/transaction.service';
+
 
 
 @Component({
@@ -21,7 +24,9 @@ export class RetraitComponent implements OnInit {
   nomCompletR = '';
   error = '';
   errorToken = '';
-  constructor( private retraitService: RetraitService, private formBuilder: FormBuilder, private ndm: Router) { }
+  coly: any;
+  afficherRecu = false;
+  constructor( private transactionService: TransactionService, private retraitService: RetraitService, private ndm: Router) { }
 
   ngOnInit() {
     this.registreCode = new FormGroup({
@@ -44,31 +49,45 @@ export class RetraitComponent implements OnInit {
     };
     console.log(retrait);
 
-    this.retraitService.retraits(retrait).subscribe(
-      data => {
-        console.log(data);
-      },
-      errormsgHttp => {
-        // function de dump des donnes de l'entete API Backend By Son Excellence WADE
-          console.log(errormsgHttp);
-
-          // recuperation des messages d'erreurs de l'API BacKend avec les codes Http By Son Excellence WADE
-          this.error = errormsgHttp.error['hydra:description'];
-
-          // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
-          alert(this.error);
-
-            // Affichage Message Token Expired
-          this.errorToken = errormsgHttp.error.message;
-
-          if (this.errorToken === 'Expired JWT Token') {
-            alert('Votre session est expirée... Merci de se connecter à nouveau de votre compte');
-            return this.ndm.navigateByUrl('');
-          } else {
-             // Afficher le message d'erreur avec la function Alerte BY Son Excellence WADE
-           alert(this.error);
+    this.transactionService.transactions(retrait).then(
+      coly => {
+        this.coly = coly;
+        Swal.fire({
+          title: '<strong>Info</strong>',
+          html:
+              '<h3>Bénéficiaire</h3>'
+              + '<p>Nom : ' + coly.nomCompletR + '</p>'
+              + '<p>Téléphone : ' + coly.telephoneR + '</p>'
+              + '<p>NCI : ' + coly.numeroPieceE + '</p>'
+              + '<h3>Envoyeur</h3>'
+              + '<p>Nom : ' + coly.nomCompletE + '</p>'
+              + '<p>Téléphone : ' + coly.TelephoneE + '</p>'
+              + '<h3>Transaction</h3>'
+              + '<p>Code : <strong>' + coly.code + '</strong></p>'
+              + '<p>Montant Envoyé : ' + coly.montant + '</p>',
+          showCloseButton: true,
+          focusConfirm: false,
+          confirmButtonColor: 'rgb(119, 146, 236)',
+          confirmButtonText:
+            '<i class="fa fa-thumbs-up"></i> Ok',
+          confirmButtonAriaLabel: 'Thumbs up, great!',
+        }).then((result) => {
+          if (result.value) {
+            this.recu();
           }
-       }
+        });
+        console.log(coly);
+  },
+    error => {
+        console.log('Erreur : ' + error.message);
+        if (error.error.message) {
+          Swal.fire(
+            'Erreur',
+            error.error.message,
+            'error'
+          );
+        }
+      }
     );
    }
    entrerCode() {
@@ -99,5 +118,11 @@ export class RetraitComponent implements OnInit {
       console.log(error);
       alert('Ce Code est invalide');
     });
+  }
+  recu() {
+    this.afficherRecu = true;
+    setTimeout(() => {
+      window.print();
+    }, 3000);
   }
 }

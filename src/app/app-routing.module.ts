@@ -17,6 +17,10 @@ import { DepotComponent } from './components/depot/depot.component';
 import { AffectationComponent } from './components/affectation/affectation.component';
 import { TarifComponent } from './components/tarif/tarif.component';
 import { LesPartsComponent } from './components/les-parts/les-parts.component';
+import { ListAffectationComponent } from './components/list-affectation/list-affectation.component';
+import { ListEnvoieComponent } from './components/list-envoie/list-envoie.component';
+import { ListRetraitComponent } from './components/list-retrait/list-retrait.component';
+import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
 
 
 const routes: Routes = [
@@ -34,8 +38,24 @@ const routes: Routes = [
   component: ListUsersComponent,
    canActivate: [AuthGuard]
  },
+ { path: 'listAffectation',
+  component: ListAffectationComponent,
+   canActivate: [AuthGuard]
+ },
  { path: 'listAdmin',
   component: ListAdminComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listEnvoi',
+  component: ListEnvoieComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listRetrait',
+  component: ListRetraitComponent,
+   canActivate: [AuthGuard]
+ },
+ { path: 'listTransaction',
+  component: ListTransactionComponent,
    canActivate: [AuthGuard]
  },
  { path: 'listCompte',

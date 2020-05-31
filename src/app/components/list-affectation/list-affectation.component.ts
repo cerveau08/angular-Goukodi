@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list-affectation',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-affectation.component.css']
 })
 export class ListAffectationComponent implements OnInit {
+  dataUser: any;
 
-  constructor() { }
+ constructor(private userService: UserService ) { }
 
-  ngOnInit() {
-  }
-
+ ngOnInit() {
+   this.userService.getAffectation().subscribe(
+     data => {
+       this.dataUser = data;
+       console.log(data);
+     }
+   );
+ }
 }

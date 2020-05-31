@@ -1,12 +1,12 @@
 
-		<div class="container register-form top-buffer-1">
+		<div class="container register-form top-buffer-1" *ngIf="!afficherRecu">
 		  <div class="form">
 			  <div class="note">
 				<p>Faire Un Transfert D'argent</p>
 			  </div>
 		 <div class="form-content bk">
-				<form [formGroup]="registreTransaction">
-					<fieldset class="scheduler-border">
+				<form [formGroup]="registreTransaction" >
+					<fieldset class="scheduler-border" >
 						<legend class="scheduler-border">Les Informations de l'Expediteur</legend>
             <div class="row">
 							<div class="col-sm-3">
@@ -48,9 +48,41 @@
           </fieldset>
 					<!--Educational Qualification -->
 					<!-- Study Abroad Plans -->
-					<button type="submit" class="btn btn-primary" (click)="transactions()">Envoyer</button>
+					<button type="submit" class="btn btn-primary" (click)="transactionS()" [disabled]="registreTransaction.invalid">Envoyer</button>
 				</form>
 			</div>
 		  </div>
-		  </div>
+      </div>
+      <fieldset *ngIf="afficherRecu" >
+        <legend>GOUKODI</legend>
+        <h3 class="text-center titre">Reçu d'envoi</h3>
+        <div class="row">
+            <p class="col-sm-3"><strong>Entreprise :</strong> GOUKODI </p>
+            <p class="col-sm-3"><strong>Guichetier :</strong> {{coly.compteEmetteur.numeroCompte}}</p>
+            <p class="col-sm-3"><strong>Date :</strong> {{coly.dateEnvoi}}</p>
+        </div>
+        <fieldset >
+            <legend>Bénéficiaire</legend>
+            <p>Nom : {{coly.nomCompletR}}</p>
+            <p>Pays : Sénégal </p>
+            <p>Téléphone : {{coly.telephoneR}}</p>
+        </fieldset>
+        <fieldset >
+            <legend>Envoyeur</legend>
+            <p>Nom : {{coly.nomCompletE}}</p>
+            <p>NCI : {{coly.numeroPieceE}}</p>
+            <p>Pays : Sénégal </p>
+            <p>Téléphone : {{coly.TelephoneE}}</p>
+        </fieldset>
+        <fieldset >
+            <legend>Transaction</legend>
+            <p>Code : {{coly.code}}</p>
+            <p>Commissions TTC : {{coly.commissionE}} </p>
+            <p>Pays : Sénégal </p>
+            <p>Montant Envoyé : {{coly.montant}}</p>
+        </fieldset>
+    </fieldset>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.js"></script>
 
+  <!-- Include a polyfill for ES6 Promises (optional) for IE11 -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill9/dist/polyfill.js"></script>

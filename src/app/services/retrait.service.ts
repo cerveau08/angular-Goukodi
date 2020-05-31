@@ -19,7 +19,9 @@ export class RetraitService {
     console.log(retrait);
     return this.httpClient.post<any>(`${environment.apiUrl}/api/transactions`, retrait);
   }
-
+  getRetrait() {
+    return this.httpClient.get(`${environment.apiUrl}/api/retrait`);
+  }
   getCode(code) {
     const data = {
       code

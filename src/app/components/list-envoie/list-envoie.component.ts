@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from 'src/app/services/transaction.service';
 
 @Component({
-  selector: 'app-list-transaction',
-  templateUrl: './list-transaction.component.html',
-  styleUrls: ['./list-transaction.component.css']
+  selector: 'app-list-envoie',
+  templateUrl: './list-envoie.component.html',
+  styleUrls: ['./list-envoie.component.css']
 })
-export class ListTransactionComponent implements OnInit {
+export class ListEnvoieComponent implements OnInit {
   dataUser: any;
 
  constructor(private transactionService: TransactionService ) { }
 
  ngOnInit() {
-   this.transactionService.getTransaction().subscribe(
+   this.transactionService.getEnvoi().subscribe(
      data => {
        this.dataUser = data;
        console.log(data);

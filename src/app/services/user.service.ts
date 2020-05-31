@@ -16,6 +16,9 @@ export class UserService {
   getAllUser() {
     return this.httpClient.get(`${environment.apiUrl}/api/users.json`);
   }
+  getAffectation() {
+    return this.httpClient.get(`${environment.apiUrl}/api/affectation`);
+  }
   getAllAdmin() {
     return this.httpClient.get(`${environment.apiUrl}/api/users`);
   }
@@ -23,7 +26,7 @@ export class UserService {
     return this.httpClient.get(`${environment.apiUrl}/api/caissier`);
   }
   getAllPartenaire() {
-    return this.httpClient.get(`${environment.apiUrl}/api/partenaires`);
+    return this.httpClient.get(`${environment.apiUrl}/api/partenaire`);
   }
   getStatus(id: number) {
   return this.httpClient.get(`${environment.apiUrl}/api/users/status/${id}`);

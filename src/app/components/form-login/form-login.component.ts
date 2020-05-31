@@ -30,7 +30,7 @@ onSubmit() {
   this.authenticationService.login(user).subscribe(
     (data) => {
       console.warn(data);
-      this.ndm.navigate(['accueil']);
+      this.ndm.navigate(['accueil/dashboard']);
     },
     errormsgHttp => {
       // function de dump des donnes de l'entete API Backend By Son Excellence WADE

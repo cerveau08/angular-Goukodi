@@ -1,1 +1,29 @@
-<p>list-affectation works!</p>
+<div class="card">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-dark text-center">Les Utilisateurs</h6>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="dtVerticalScrollExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+    width="100%">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">username</th>
+          <th scope="col">Date Debut</th>
+          <th scope="col">Date Fin</th>
+          <th scope="col">Compte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let affectation of dataUser">
+          <th scope="row">{{affectation.id}}</th>
+          <td>{{affectation.userComptePartenaire.username}}</td>
+          <td>{{affectation.dateDebut}}</td>
+          <td>{{affectation.dateFin}}</td>
+          <td>{{affectation.compte.numeroCompte}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
