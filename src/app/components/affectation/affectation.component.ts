@@ -55,7 +55,7 @@ export class AffectationComponent implements OnInit {
     this.compteService.affecter(affectation).subscribe(
       data => {
         console.log(data);
-        this.ndm.navigateByUrl('/accueil/listUsers');
+        this.ndm.navigateByUrl('/accueil/listAffectation');
       },
       error => {
         console.log(error);
