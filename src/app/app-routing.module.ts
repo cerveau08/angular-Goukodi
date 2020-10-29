@@ -21,9 +21,13 @@ import { ListAffectationComponent } from './components/list-affectation/list-aff
 import { ListEnvoieComponent } from './components/list-envoie/list-envoie.component';
 import { ListRetraitComponent } from './components/list-retrait/list-retrait.component';
 import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { ChangePasswordRequestComponent } from './components/change-password-request/change-password-request.component';
 
 
 const routes: Routes = [
+  { path: 'reset-password', component: ChangePasswordRequestComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
   {
     path: 'accueil',
     component: DefaultComponent,

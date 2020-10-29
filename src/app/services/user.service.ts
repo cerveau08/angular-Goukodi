@@ -50,9 +50,9 @@ upload(imageProfil, id) {
   return this.httpClient.post<User>(`${environment.apiUrl}/users/imageprofil/${id}`, imageProfil);
 }
 
-getThumbnail(user: User) {
-  if (user.imageProfil) {
-    const objectURL = 'user:image/jpg;base64,' + user.imageProfil;
+getThumbnail(data) {
+  if (data.imageProfil) {
+    const objectURL = 'data:image/jpeg;base64,' + data.imageProfil;
     return this.sanitize.bypassSecurityTrustUrl(objectURL);
   } else {
     const objectURL = './assets/images/cerv.jpg';

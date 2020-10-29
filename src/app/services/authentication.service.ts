@@ -18,7 +18,7 @@ export class AuthenticationService {
    }
   login(user: User) {
     // tslint:disable-next-line: no-shadowed-variable
-    return this.http.post<User>(`http://127.0.0.1:8000/api/login_check`, user).pipe(map(user => {
+    return this.http.post<User>(`http://localhost:8000/api/login`, user).pipe(map(user => {
       const decoded = jwt_decode(user.token);
       console.log(decoded);
 
@@ -40,5 +40,13 @@ export class AuthenticationService {
   logout() {
     // tslint:disable-next-line:quotemark
     localStorage.removeItem("token");
+  }
+
+  sendResetPasswordLink(data) {
+    return this.http.post('http://127.0.0.1:8000/api/reset-password-request', data);
+  }
+
+  resetPassword(data) {
+    return this.http.post('http://127.0.0.1:8000/api/change-password', data);
   }
 }

@@ -36,6 +36,8 @@ import { ModifTarifComponent } from './components/modif-tarif/modif-tarif.compon
 import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
 import { ListEnvoieComponent } from './components/list-envoie/list-envoie.component';
 import { ListRetraitComponent } from './components/list-retrait/list-retrait.component';
+import { ChangePasswordRequestComponent } from './components/change-password-request/change-password-request.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { ListRetraitComponent } from './components/list-retrait/list-retrait.com
     ModifTarifComponent,
     ListTransactionComponent,
     ListEnvoieComponent,
-    ListRetraitComponent
+    ListRetraitComponent,
+    ChangePasswordRequestComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
